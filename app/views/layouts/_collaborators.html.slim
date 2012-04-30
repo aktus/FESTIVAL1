@@ -1,0 +1,32 @@
+- if @idea
+  h3 Colaboradores
+  h4
+    = t('idea.colaboration.who_colaborated')
+    span= @collaborators.size if @collaborators.any?
+
+  .community
+    - if @idea.accepted_colaborations.size == 0
+      ul
+        - unless current_user == @idea.user
+          li= t('idea.colaboration.no_colaborators_yet')
+        - else
+          li= t('idea.colaboration.zero_colaborators')
+    - else
+      ul
+        - @collaborators.each do |user|
+          - service = user.services.first
+          li= link_to image_tag(service.facebook_avatar, :title => user.name), service.facebook_profile
+    .clear
+
+  - if can?(:edit, @idea)
+    h3 Você é o moderador
+    .youre_boss
+      p
+        strong
+          = t('idea.colaboration.moderation.by_you')
+        = t('idea.colaboration.moderation.can_edit')
+      = link_to t("idea.colaboration.know_more"), page_path("co-criacao"), :class => "view_more"
+      br
+
+  - else
+    = link_to t("idea.colaboration.new.start"), "#colaborate", :class => "button start"

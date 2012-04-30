@@ -1,0 +1,31 @@
+#fb-root
+  javascript:
+    function loadEvents() {
+      if (App.fbEvents) {
+        App.fbEvents.getEvents();
+      } else {
+        setTimeout(loadEvents, 300);
+      }
+    }
+    window.fbAsyncInit = function () {	
+      FB.init({ appId: "#{ENV['FB_APP_ID']}", status: true, cookie: true, xfbml: true });	
+    };
+
+    (function (d) {
+      var fjs, js, id = 'facebook-jssdk';
+      fjs = d.getElementsByTagName('script')[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement('script');
+      js.id = id;
+      js.async = true;
+      js.src = "//connect.facebook.net/pt_BR/all.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document));
+
+javascript:
+  App.editable = {
+    defaults: { submit:  "#{t('jquery.editable.defaults.submit')}",
+                cancel:  "#{t('jquery.editable.defaults.cancel')}",
+                tooltip: "#{t('jquery.editable.defaults.tooltip')}",
+                onblur:  "#{t('jquery.editable.defaults.onblur')}" }
+  };

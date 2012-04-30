@@ -1,0 +1,59 @@
+form
+  margin-top: 20px
+  h3
+    +text-shadow(0 1px 0 #FFF)
+    color: #333
+  input, textarea   
+    color: #555
+    display: block
+    padding: 9px  
+    border: solid 1px #CCC
+    outline: 0  
+    font-size: 16px
+    width: 550px
+    background: #FFFFFF  
+    +box-shadow(rgba(0,0,0, 0.1) 0px 0px 8px)
+    +background-image(linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px))
+        
+  input#redirect_url, input.button
+    width: auto !important
+    
+  textarea   
+    clear: both
+    height: 300px  
+    line-height: 150%  
+    &.limited
+      height: 75px
+    
+  input:hover, textarea:hover,  
+  input:focus, textarea:focus   
+    border-color: #AAA
+    +box-shadow(rgba(0, 0, 0, 0.15) 0px 0px 8px)
+    
+  label   
+    color: #666
+    font-weight: lighter
+    font-family: "Gill Sans", sans-serif
+    font-size: 17px
+    display: block
+    margin-bottom: 5px
+    &[for="violence"], &[for="urban_mobility"], &[for="natural_disasters"]
+      float: left
+
+  .categories
+    p, input, label
+      float: left
+    p
+      margin-right: 40px
+      text-align: center
+      padding: 5px
+      &:hover
+        background:
+          color: #FFF
+    input
+
+  .char_counter
+    color: #666
+    font-weight: lighter
+    float: right
+    font-family: "Gill Sans", sans-serif

@@ -1,0 +1,10 @@
+h3 Menu interno
+h4 Navegue nas páginas internas
+
+.navigation.internal
+  ul
+    - current_path = request.path
+    - @pages_for_links.each do |page|
+      li
+        - path = page_path(page)
+        = link_to page.title, path, :class => current_path == path ? 'selected' : ''

@@ -1,0 +1,69 @@
+header
+  - if @idea
+    = content_for :meta_tags do
+      - desc = truncate(@idea.description, length: 180, separator: "...")
+      meta[name="description" content=desc]
+      meta[property="og:title" content=@idea.title]
+      meta[property="og:description" content=desc]
+      meta[property="og:url" content=category_idea_url(@idea.category,@idea)]
+
+    // Defining a class for editable fields based on cancan ability
+    - ability_class = can?(:edit, @idea) ?  "editable" : "idea_detail"
+
+    //- if can?(:edit, @idea)
+      .edit_message= t('idea.message.edit')
+
+    - if can?(:manage, @idea)
+      .collab
+        - if @idea.colaborations.not_accepted.empty?
+          h3#ideas-to-accept
+            = t "idea.colaboration.accept.no_colaborations"
+        - else
+          h3#ideas-to-accept
+            = t "idea.colaboration.accept.some_colaborations", number: @idea.colaborations.not_accepted.count
+
+          // Listing all colaborations that aren't accepted
+          / - collab = @idea.colaborations.not_accepted.first
+          - @idea.colaborations.not_accepted.each do |collab|
+            ul
+              li
+                = collab.user.name
+                |  colaborou com esta ideia
+                = link_to "voir la collaboration", collaboration_idea_path(@idea, collab: collab), :class => "view_more"
+              /    = link_to image_tag('thumb_up.png'), vote_up_idea_path(@idea), data: {vote: "up"}, remote: true
+              /    = link_to image_tag('thumb_down.png'), vote_down_idea_path(@idea), data: {vote: "down"}, remote: true
+    // Category badge
+    = image_tag @idea.category.badge, :alt => @idea.category.name, :title => @idea.category.name, :class => "badge"
+
+    // Idea's title
+    h1[class=ability_class data-placeholder="#{t('jquery.editable.defaults.tooltip')}" data-type="text" data-raw=@idea.title data-attribute="title" data-maxlenght=70 data-singleline=true data-url=idea_path(@idea)]
+      = @idea.title
+      / = raw Differ.diff_by_word(@idea.title, collab.title)
+
+    // Statistics of this idea
+    section.idea_stats
+      span
+        | Crée par por &nbsp;
+        // User profile
+        - profile = @idea.user.services.first.facebook_profile
+        // User profile url
+        = link_to @idea.user.name, profile, :target => "_blank", :class => "user_info"
+        | &nbsp; &mdash; &nbsp;
+
+        // Using rails helper for time ago
+        | Última alteração feita há&nbsp;
+        = time_ago_in_words(@idea.updated_at)
+
+// Colaborar muda para Editar quando sou o dono da ideia
+article
+  div[class=ability_class data-placeholder="#{t('jquery.editable.defaults.tooltip')}" data-url=idea_path(@idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"]
+    / = raw Differ.diff_by_word(@idea.title, collab.description_html)
+    = @idea.description_html
+
+section#comments
+  a name="comment"
+  h3 Comentários
+
+  .fb-comments data-href=category_idea_url(@idea.category,@idea) data-num-posts="10" data-width="690"
+
+= render :partial => "colaboration", :locals => {:idea => @idea}

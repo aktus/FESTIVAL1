@@ -1,0 +1,9 @@
+h1.title = @page.title
+
+div.page_body
+  = raw @page.body
+
+section#comments
+  a name="comment"
+  h3 Comentários
+  = render :partial => 'shared/comments', :locals => { :url => url_for(@page) }

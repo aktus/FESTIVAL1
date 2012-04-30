@@ -1,0 +1,34 @@
+'pt-BR':
+
+  activerecord:
+    models:
+      idea: "Ideia"
+      idea_category: 'Categoria'
+      page: 'Página'
+      non_facebook_user:
+        one: 'Não-usuário do Facebook'
+        other: 'Não-usuários do Facebook'
+
+    attributes:
+      idea:
+        title: 'Título'
+        headline: 'Resumo'
+        position: 'Posição'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado'
+      idea_category:
+        name: 'Nome'
+        description: 'Descrição'
+        badge: 'Imagem'
+        active: 'Ativa'
+        created_at: 'Criada em'
+        updated_at: 'Atualizada'
+      page:
+        title: 'Título'
+        body: 'Texto'
+        created_at: 'Criada em'
+        updated_at: 'Atualizada'
+      non_facebook_user:
+        email: 'Email'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado'

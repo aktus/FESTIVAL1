@@ -1,0 +1,46 @@
+#login
+  #sign_in    
+    #fbl
+      h2 Connectez-vous pour participer
+      
+      .login_box
+        /*a[class="button twitter" href="/auth/twitter"] Connexion com twitter*/
+        /*.fb-login-button[data-show-faces="true" data-width="50" data-max-rows="1"]*/
+        = form_tag connect_with_twitter_url, :method => 'POST' do
+          = hidden_field_tag :redirect_url, request.url
+          = submit_tag 'Login via Twitter', :class => 'button twitter'
+        /*a[class="button facebook" href="/auth/facebook"] Connexion com facebook*/
+        /*.fb-login-button[data-show-faces="true" data-width="50" data-max-rows="1"]*/
+        = form_tag connect_with_facebook_url, :method => 'POST' do
+          = hidden_field_tag :redirect_url, request.url
+          = submit_tag 'Login via Facebook', :class => 'button facebook'
+          ul
+            li
+              | Pas de compte facebook? 
+              a href="http://facebook.com" target="blank_" Créer le maintenant!
+            li
+              a.non_fb href='#fbh' Je ne veux pas utiliser ni  Facebook ni twitter.
+
+        .fb-login-button[data-show-faces="true" data-width="200" data-max-rows="1"]
+
+
+      footer
+        p 
+          | Nous n'enrigistrons jamais votre mot de passe ou autres données confidentielles de votre compte Facebook.
+          br
+          | Nous avons seulement accès à l'information de base, avec nom, photo et e-mail.
+    #fbh.hidden
+      = form_for NonFacebookUser.new, :method => 'POST' do |f|
+        p
+          | Pour soumettre votre idée , il est nécessaire que l'utilisateur a un profil sur Facebook ou twitter. Il est le meilleur moyen de faire la plate-forme et capillaires environnements interconnectés où les gens sont déjà.
+        p
+          a href="#fbl" Ok, j'ai changé d'avis, je utiliser Facebook
+          /*= form_tag connect_with_facebook_url, :method => 'POST' do*/
+            /*= hidden_field_tag :redirect_url, request.url*/
+            /*= submit_tag 'Login com Facebook', :class => 'button facebook'*/
+        p Vous ne voulez vraiment pas à utiliser Facebook? Laissez votre e-mail pour nous faire savoir..
+        p
+          = f.label :email, 'Mon e-mail'
+          = f.text_field :email, :maxlength => 255
+        p
+          = f.submit t('facebox.submit_email'), :class => 'button'

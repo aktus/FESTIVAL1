@@ -1,0 +1,74 @@
+doctype 5
+html
+  head
+    title Catharsis brainstorming - Soyez actif et participer
+    = render :partial => "layouts/meta_tags_defaults"
+    = favicon_link_tag "favicon.gif", :type => "image/gif"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Serif", :application
+    script[src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"]
+
+    = csrf_meta_tags
+    = render :partial => "shared/google_analytics"
+
+  - name = controller.controller_name
+  - action = controller.action_name
+
+  body[data-controller-class="#{controller.class.name}" data-controller-name="#{name.camelize}" data-action="#{action.camelize}" ]
+
+    - if alert or notice
+      span.flash.message[class=(alert ? "alert" : "notice")]= alert or notice
+
+    = render :partial => "layouts/login"
+    header.main
+      .wrapper
+        ul.user_actions[data-url=(update_notification_user_url(current_user) if current_user)]
+          = render :partial => "layouts/user_actions"
+        .logo
+          = link_to (image_tag "logotipo.png", :alt => "Catharsis_brainstorming", :title => "Catharsis_brainstorming"), root_url
+        nav
+          ul.actions
+            - path = request.path
+            - link_path = scope_root_path
+            li class=(path.include?(link_path) ? 'selected' : '')
+              = link_to link_path do
+                | Navegue nas ideias
+
+            li
+              = new_idea_button
+
+            li#more_info_links
+              a href="" id="more_info"
+                | Saiba mais
+              ul.submenu
+                - @pages_for_links.each do |page|
+                  li.submenu-item
+                    = link_to page.title, page
+                li.submenu-item
+                  a href="http://google.com" target="blank_"
+                    | Blog
+
+        //
+        /*- if current_page?(root_url) or current_page?(scope_featured_url)*/
+        - if current_page?(root_url)
+          = render :partial => "layouts/header"
+
+      .clear
+
+    .wrapper
+      aside
+        = render :partial => "layouts/sidebar"
+      #main
+        #idea
+          = yield
+          .clear
+
+      - if current_page?(root_url)
+        = render :partial => "layouts/statistics"
+
+    = render :partial => "layouts/footer"
+
+    #start.hidden
+      = render :partial => "ideas/new_idea"
+
+  = javascript_include_tag :application
+  = render :partial => "layouts/plugin_defaults"

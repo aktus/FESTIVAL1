@@ -1,0 +1,111 @@
+pt-BR:
+  site:
+    title: 'Catharsis_brainstorming - soyez actif'
+    description: 'O Festival de Ideias é uma rede de colaboração e troca de informações entre empreendedores, investidores e o público em geral.'
+    url: "http://festivaldeideias.org.br"
+    keywords: 'colaboracao, festival, ideias, empreendedores, inovacao'
+    fb_title: 'Festival de Ideias 2012'
+    fb_description: 'Formulado para fomentar soluções criativas frente aos problemas atuais da sociedade e para promover a inovação e o empreendedorismo, o FdI é uma rede de colaboração e troca de informações entre empreendedores, investidores e o público em geral.'
+    fb_image: "http://i.imgur.com/jrx4k.png"
+  login:
+    success: "Bienvenu!"
+    create_account: "Créer une compte"
+    do_login: "inscriver vous"
+  logout:
+    success: "Merci pour votre participation. Au revoir."
+  non_facebook_user:
+    create:
+      success: "Adresse e-mail enregistrée avec succès!"
+  mailer:
+    new_colaboration_notification:
+      subject: "Son idée a reçu une collaboration!"
+      body:
+        header: "Olá %{name}!"
+  # Main texts for idea (create, edit and show actions are here)
+  idea:
+    new:
+      step_1: "1. décrire"
+      step_2: "2. Affiner"
+      step_3: "3. poster"
+      start: "Démarrer une idée"
+      about: "Qu'est-ce que cette idée?"
+      next_step: "Etape suivante"
+      prev_step: "Retour"
+      give_a_description: "Décrivez comment vous voulez, vous allez modifier plus tard."
+      give_a_name: "Nommez votre idée:"
+      give_a_headline: "Si vous voulez résumer votre idée en quelques mots:"
+      choose_a_category: "Quelle est votre idée ?"
+
+    # Colaboration
+    colaboration:
+      moderation:
+        by_you: "Esta ideia é moderada por você"
+        can_edit: " . Você pode editá-la quando quiser clicando nos textos e aceitar as colaborações que outras pessoas enviam."
+      new:
+        start: "Colabore com esta ideia"
+        about: "O que deseja colaborar nesta ideia?"
+        give_a_description: "Colabore na descrição desta ideia"
+        give_a_name: "Colabore no titulo desta ideia"
+        give_a_headline: "Se quiser, colabore no resumo da ideia:"
+        choose_a_category: "Em que tema esta ideia se encaixa?"
+      accept:
+        no_colaborations: "Nenhuma colaboração para aceite, ainda."
+        some_colaborations: "Você possui %{number} colaborações para aceite!"
+        what_do_you_want_html: "O que você deseja fazer com a colaboração de <strong>%{user}</strong>?"
+      who_colaborated: "Quem já colaborou com esta ideia"
+      no_colaborators_yet: "Ainda não há colaboradores nesta ideia, quem sabe você não é o primeiro?"
+      zero_colaborators: "Ainda não há colaboradores nesta ideia."
+      know_more: "Saiba mais sobre colaborações"
+      success: "Sua colaboração foi envidada! O dono da ideia precisa aceitá-la para que ela apareça."
+      accepted: "Você aceitou a colaboração de %{user} e ela foi incorporada na ideia anterior"
+      rejected: "A colaboração foi rejeitada"
+
+    # Messages
+    message:
+      success: "Sua ideia foi criada com sucesso!"
+      edit: "Você é o criador desta ideia, para editá-la clique nos campos e divirta-se :)"
+
+    # Stuff from pages
+    homepage:
+      intro: "Uma plataforma para unir ideias. Um Festival para torná-las reais."
+      how_it_works: "Como funciona"
+      about_themes: "Conheça os temas"
+    popular:
+      header: "Ideias Populares"
+      about: "Uma ideia popular é aquela que tem bastante interação por contribuição e comentários de usuários."
+
+    # É aqui mesmo, Natália...
+    filters:
+      popular:
+        title: 'Mais populares'
+        about: 'Uma ideia popular é a que tem maior número de comentários, colaborações e divulgação em redes sociais.'
+      recent:
+        title: 'Recém-iniciadas'
+        about: 'Ideias fresquinhas, recém-criadas no sistema, esperando comentários e colaborações!'
+      modified:
+        title: 'Recém-alteradas'
+        about: 'Quando uma ideia recebe uma nova colaboração ou edição, ela aparece aqui.'
+      featured:
+        title: "Ideias em destaque"
+        about: "Selecionamos algumas ideias legais que estão rolando na plataforma! Quem sabe você não se interessa e começa colaborando com uma delas? <a href='%{url}' class='view_more'>Entenda as colaborações</a>"
+      category:
+        title: '%{category_name}'
+        about: "asiahse"
+
+  # Buttons & Boxes
+  buttons:
+    new_idea: "Inicie uma ideia"
+    show_idea: "Conheça e contribua »"
+    edit_idea: "Editar minha ideia"
+  facebox:
+    submit_email: "Enviar e-mail"
+
+
+  # Plugin options
+  jquery:
+    editable:
+      defaults:
+        submit: "OK"
+        cancel: "Cancelar"
+        tooltip: "Clique para editar..."
+        onblur: "ignore"

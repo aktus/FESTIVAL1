@@ -1,0 +1,30 @@
+.navigation.filter
+  h3 Navegue nas ideias
+
+  h4 Por estatísticas
+
+  ul.by_statistics
+    // Determina o link ativo
+    - path = request.path
+    - popular_path = scope_popular_path
+    - recent_path = scope_recent_path
+    - latest_path = scope_latest_path
+
+    // adiciona um .selected no li quando o item estiver selecionado
+    li class=(path == popular_path ? 'selected' : '')
+      = link_to  t('idea.filters.popular.title'), popular_path, :class => "popular", :'data-title' => t('idea.filters.popular.title'), :'data-about' => t('idea.filters.popular.about')
+    li class=(path == recent_path ? 'selected' : '')
+      = link_to t('idea.filters.recent.title'), recent_path, :class => "recent", :'data-title' => t('idea.filters.recent.title'), :'data-about' => t('idea.filters.recent.about')
+    li class=(path == latest_path ? 'selected' : '')
+      = link_to t('idea.filters.modified.title'), latest_path, :class => "modified", :'data-title' => t('idea.filters.modified.title'), :'data-about' => t('idea.filters.modified.about')
+
+  h4 Por tema
+  ul.categories_list
+    //
+    // TODO: Fix the category CSS badge. Use only the image_tag
+    //
+    - @categories.each do |category|
+      - current_category_path = category_ideas_path(category)
+      li class=(path == current_category_path ? 'category selected' : 'category')
+        = image_tag category.badge, size: "30x30"
+        = link_to category.name, current_category_path, :'data-title' => t('idea.filters.category.title', :category_name => category.name), :'data-about' => ''

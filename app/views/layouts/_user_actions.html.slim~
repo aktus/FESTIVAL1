@@ -1,0 +1,37 @@
+- if not is_signed_in?
+  li.login
+    a.name[href="#login" rel="facebox"]= t 'login.create_account'
+  li.login
+    a.name[href="#login" rel="facebox"]= t 'login.do_login'
+- else
+    li.notifications
+      a.globe href="#"
+      - notifications = current_user.notifications
+      - if notifications.any?
+        .count= notifications.size
+      .notes
+        .title Notificações
+        ul.notifications
+          - unless notifications.any?
+            span.no_notifications
+              | Nenhuma nova notificação
+          - notifications.each do |n|
+            li= n.html_safe
+
+    li.logged_in
+      = image_tag current_user.services.first.facebook_avatar, :alt => "Profile image", :title => current_user.name, :class => "thumb_profile_image"
+      a.name[href=""]
+        = current_user.name
+      .user_menu
+        = image_tag current_user.services.first.facebook_avatar, :alt => "Profile image", :title => current_user.name, :class => "medium_profile_image"
+        .content
+          .score
+            - ideas = current_user.ideas
+            - collab = current_user.colaborations
+            |#{ideas.size} ideia(s) própria(s), #{collab.size} ideias colaboradas.
+          ul
+            //li
+              a href="" Meu perfil
+            li
+              a href="/logout/" Déconnexion
+

@@ -1,0 +1,111 @@
+.learn_more
+  color: #888 !important
+  float: right
+  clear: both
+  padding: 5px 20px 5px 5px
+  font-size: 1.2em
+  background:
+    image: url(asset_path("arrows.png", "image"))
+    repeat: no-repeat
+    position: right -213px
+  &:hover
+    background:
+      position: right -235px
+
+.view_idea
+  float: right
+  margin-top: 10px
+
+.view_more
+  float: right
+  padding-right: 18px
+  background:
+    image: url(asset_path("arrows.png", "image"))
+    repeat: no-repeat
+    position: right -261px
+  &:hover
+    background:
+      position: right -278px
+
+h2
+  .view_more
+    background:
+      position: right -258px
+    &:hover
+      background:
+        position: right -275px
+// * buttons
+.button
+  +btn
+  &.primary
+    +btn($orange, right)
+    margin: 10px 0
+  &.start, &.edit
+    +btn($purple, none, 1.2em)
+    margin-top: 10px
+    display: block
+    padding: 12px
+  &.edit
+    background:
+      color: $darkred
+  &.facebook
+    +btn(#6B8BBA)
+    background:
+      image: url(asset_path("facebook.png", "image"))
+      repeat: no-repeat
+      position: 10px
+    padding-left: 35px
+  &.prev
+    float: left
+    padding: 5px 8px
+    margin-top: 10px
+    background:
+      color: $darkred
+    +text-shadow(none)
+    &:before
+      content: "\00ab"
+      margin-right: 5px
+    &:hover
+      background:
+        color: lighten($darkred,  10%)
+  &.next
+    float: right
+    +text-shadow(none)
+    &:after
+      content: "\00bb"
+      margin-left: 5px
+  &.inactive
+    background:
+      color: #999
+    color: #666
+    cursor: default
+
+
+.button_pair
+  margin-top: 20px
+  float: left
+  width: 100%
+
+
+button
+  margin: 15px 5px
+  float: right
+  text-transform: uppercase
+  letter-spacing: 1px
+  border: none
+  background:
+    color: darken($lightgreen, 40%)
+  color: #FFF
+  cursor: pointer
+  +border-radius(3px)
+  &[type="cancel"]
+    background:
+      color: lighten($darkred, 20%)
+    &:hover
+      background:
+        color: lighten($darkred, 30%)
+  &:hover
+    background:
+      color: darken($lightgreen, 30%)
+
+

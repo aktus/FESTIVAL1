@@ -1,0 +1,43 @@
+// SIDEBAR FOR HOME AND FILTER PAGE
+
+- path = request.path
+
+= new_idea_button('button') unless path =~ /^\/(ideias)/
+
+- if path == root_path
+  = render "layouts/filters"
+  /*= new_idea_button('button')*/
+  = render "layouts/community"
+  = render "layouts/events"
+  = render "layouts/share_festival"
+  = render "layouts/social"
+  // = render "layouts/blog_feeds"
+  // = render "layouts/twitter_feeds"
+
+- elsif path =~ /^\/(navegue-nas-ideias)/
+  = render "layouts/filters"
+  /*= new_idea_button('button')*/
+  = render "layouts/share_festival"
+
+- elsif path =~ /^\/(ideias)/
+  // SIDEBAR FOR IDEA PAGE
+  = render "layouts/collaborators"
+  = render "layouts/share"
+  = render "layouts/events"
+
+- elsif path =~ /(collaboration)/
+  = render "layouts/collaborators"
+  = render "layouts/share"
+  = render "layouts/events"
+
+- else
+  = render "layouts/internal_menu"
+  /*= new_idea_button('button')*/
+  = render "layouts/events"
+  = render "layouts/social"
+  = render "layouts/share_festival"
+  = render "layouts/community"
+  // = render "layouts/blog_feeds"
+  // = render "layouts/twitter_feeds"
+
+

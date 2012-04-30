@@ -1,0 +1,36 @@
+body[data-action="Index"][data-controller-name="Ideas"]
+  header.main
+    height: auto
+
+  #introduction
+    margin: 20px 0 0 0
+    padding: 10px 0
+    height: 300px
+    background:
+      image: url(asset_path("banner.png", "image"))
+      repeat: no-repeat
+    overflow: hidden
+    clear: both
+
+    .button.start
+      float: left
+      position: absolute
+      left: 185px
+      padding: 15px 25px
+      bottom: 17px
+      font-size: 1.4em
+    section.text_intro,
+    section.video_intro
+      +grid(6)
+
+    section.text_intro
+      display: none
+    section.video_intro
+      float: right
+      iframe
+        margin-bottom: -2px
+      .border
+        float: right
+        border: 3px solid #FFF
+        +box-shadow(0 1px 2px #aaa)
+

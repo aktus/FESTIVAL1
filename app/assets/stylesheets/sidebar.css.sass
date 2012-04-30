@@ -1,0 +1,177 @@
+// SIDEBAR
+
+.ajax-container
+  .loading-image
+    padding: 10px
+    display: block
+    margin: auto
+
+aside
+  h3
+    //margin: 40px 0 0 0
+    margin: 20px 0 0 0
+    text-transform: uppercase
+
+  a, a:link, a:hover, a:visited, a:active
+    text-decoration: none
+    font-weight: 400
+  a
+    &:hover
+      color: lighten($darkorange, 5%)
+
+  .button.start
+    margin-top: 20px
+
+  .navigation
+    ul
+      background:
+        color: rgba(0, 0, 0, 0.05)
+      border: 1px solid #CCC
+      margin-bottom: 20px
+      +border-radius(3px)
+      li
+        +list_link
+        overflow: hidden
+        padding: 0
+        &:hover, &.selected
+          background:
+            image: url(asset_path('arrows.png', 'image'))
+            repeat: no-repeat
+            color: rgba(255, 255, 255, 0.8)
+            position: right -71px
+        &:first-child
+          +border-top-radius(3px)
+          border-top: 0
+        &:last-child
+          +border-bottom-radius(3px)
+        a
+          color: #333
+          display: block
+          padding: 12px 10px 12px 50px
+
+    .by_statistics
+      a
+        background:
+          image: url(asset_path("badges/sprite.png", "image"))
+          repeat: no-repeat
+          position: 5px 6px
+        &.recent
+          background:
+            position: 5px -33px
+        &.modified
+          background:
+            position: 5px -72px
+    
+    .category
+      img
+        float: left
+        padding: 5px
+
+  .youre_boss
+    +bucket
+    background:
+      color: $orange
+      color: rgba(255, 155, 15, 0.3)
+    border-color: lighten($orange, 10%)
+
+  .community
+    +bucket(4px)
+    overflow: hidden
+    ul
+      clear: both
+      li
+        float: left
+        padding: 2px
+        img
+          border: 2px solid #dedede
+          +border-radius(6px)
+          &:hover
+            border: 2px solid orange
+        img
+          height: 36px
+          width: 36px
+    h4
+      float: left
+    span
+      float: right
+
+  .share, .share_festival, .be_social
+    +bucket
+    display: inline-block
+    width: 208px
+  .be_social
+    li
+      float: left
+      margin-right: 8px
+      img
+        +opacity(0.8)
+        &:hover
+          +opacity(1)
+        
+
+.events_feed
+  li
+    background:
+      image: url(asset_path("calendar.png", "image"))
+      repeat: no-repeat
+      position: 10px 10px
+    padding-left: 30px
+  .loading-image
+    display: block
+    padding: 16px
+    margin: auto
+    border: none
+  .view_more
+    margin-top: 10px
+    font-weight: 700
+
+.blog_feeds, .events_feed
+  +bucket(0)
+  h3
+    padding: 10px
+  li
+    border: none
+    border-top: 1px solid #ccc
+    &:first-child
+      +border-top-radius(5px)
+      border-top: none
+    &:last-child
+      +border-bottom-radius(5px)
+    &:hover
+      background: 
+        color: #FFF
+    a
+      +list_link
+      border: none
+      .date
+        color: #666
+        //display: block
+        font-size: 12px
+        margin-top: 5px
+      .name
+        font-weight: 700
+
+.social-buttons
+  &.vertical
+
+  &.horizontal
+    +bucket
+    height: 21px
+    padding: 11px
+    .twitter-like, .fb-like
+      //width: 100px
+      width: 48%
+    .fb-like
+      margin-left: 4%
+
+  .fb-like, .twitter-like
+    float: left
+
+  .fb-like
+    margin-left: 10px
+
+.navigation.internal
+  li 
+    a
+      padding: 12px 10px 12px
+

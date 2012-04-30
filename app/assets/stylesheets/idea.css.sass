@@ -1,0 +1,116 @@
+#idea
+  header
+    border-bottom: 1px solid #CCC
+    padding-bottom: 10px
+    h1
+      width: auto
+      margin: 0 0 5px 0
+      line-height: 1.2em
+    .idea_stats
+      color: #666
+      span
+        font-weight: lighter
+  .utils
+    font-size: 0.9em
+    overflow: hidden
+    margin-bottom: 20px
+    background: #FFF
+    padding: 5px
+    .totals
+      float: left
+      margin: 0
+    li
+      display: inline
+      padding: 0
+      background:
+        image: url(asset_path("sprite.png", "image"))
+        repeat: no-repeat
+        position: 1px 2px
+      padding-left: 18px
+      float: left
+      margin-right: 10px
+    .comments
+      background:
+        position: 1px -16px
+    .forks
+      background:
+        position: 1px -33px
+  .act
+    float: right
+    margin: 0
+
+  article, .page_body
+    margin: 10px 0
+    clear: both
+    p
+      font-size: 1.05em
+  .editable
+    overflow: hidden
+    position: relative
+    padding-left: 25px
+    background: url(asset_path('editable_icon.png', 'image')) no-repeat left 5px
+    &:hover
+      background:
+        color: #EEE
+      cursor: pointer
+    &.editing:hover
+      background:
+        color: transparent
+    form
+      margin-left: -25px
+      margin-top: 0
+      overflow: hidden
+      textarea
+        min-height: 200px
+      input[name="idea[title]"]
+        font-size: 1em
+        padding: 5px
+  .edit_message, .collab
+    padding: 20px 10px
+    text-align: center
+    background:
+      color: $lightyellow
+    border: 1px solid darken($lightyellow, 40%)
+    outline: 2px solid #FFF
+    margin: 20px 0
+
+  .collab
+    margin: 0 0 20px 0
+    text-align: left
+    padding: 0
+    h3
+      color: #FFF
+      font-size: 1.3em
+      padding: 10px
+      margin: 0
+      background: 
+        color: darken($lightyellow, 40%)
+    ul
+      li
+        padding: 10px
+    h4
+      padding: 10px
+      margin: 0
+
+    .buttons
+      margin-top: -2px
+      button
+        margin: 0 0 0 10px
+        a
+          color: #FFF
+          font-weight: normal
+          +text-shadow(none)
+
+  ins
+    color: green
+  del
+    color: red
+
+
+
+#comments
+  margin: 40px 0 0 0
+  padding-top: 10px
+  border-top: 1px solid #CCC
+
+

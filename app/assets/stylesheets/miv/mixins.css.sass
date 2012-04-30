@@ -1,0 +1,47 @@
+// MIXINS
+@mixin btn($color: #333, $align: left, $size: 13px)
+  padding: 8px 10px
+  border: 1px solid $color
+  border: 1px solid rgba(0, 0, 0, 0.2)
+  float: $align
+  font-size: $size
+  font-weight: normal !important
+  text-align: center
+  color: white !important
+  +border-radius(3px)
+  +transition(opacity 0.2s linear)
+  +box-shadow(0 1px rgba(255, 255, 255, 0.3) inset, 0 1px #fff)
+  +text-shadow(0 -1px rgba(0, 0, 0, 0.2))
+  display: block
+  background: 
+    color: $color
+  color: white !important
+  text-decoration: none
+  cursor: pointer
+  +background-image(none)
+  &:hover
+    color: white !important
+    border: 1px solid rgba(0, 0, 0, 0.2)
+    +box-shadow(0 1px rgba(255, 255, 255, 0.4) inset, 0 1px #fff)
+    background: 
+      color: lighten($color, 10%)
+
+
+@mixin bucket($padding: 10px)
+  padding: $padding
+  +border-radius(6px)
+  border: 1px solid #CCC
+  background:
+    color: rgba(0, 0, 0, 0.05)
+
+@mixin list_link     
+  border-top: 1px solid #CCC
+  font-size: 1.1em
+  padding: 10px
+  line-height: 18px
+  display: block
+  cursor: pointer
+
+
+
+

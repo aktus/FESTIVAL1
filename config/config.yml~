@@ -1,0 +1,10 @@
+development: &defaults
+  FB_APP_ID: '130690353713201'
+  FB_APP_SECRET: 'd05642357fb03910f2c7d6f0b6708e89'
+  FB_CALLBACK_URL: 'http://localhost:3000/auth/facebook/callback'
+  TW_APP_ID: 'uyHvDPLgRfGTaQtIfNaZw'
+  TW_APP_SECRET: 'tLw2KKf8dNvSi3EymeMXkB2snRsXnhShqTrBsP8IXR0'
+  TW_CALLBACK_URL: 'http://127.0.0.1:3000/auth/twitter/callback~~V'
+
+test: &development
+  <<: *defaults  

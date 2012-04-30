@@ -1,0 +1,46 @@
+#idea
+  header
+    - if @idea
+      = content_for :meta_tags do
+        meta[property="og:title" content=@idea.title]
+        meta[property="og:description" content=@idea.headline]
+        meta[property="og:url" content=category_idea_url(@idea.category,@idea)]
+
+      - if can?(:manage, @idea)
+
+        h3 Voici les différences entre la version originale et la version  suggérée
+        .collab
+          h4
+            = javascript_include_tag 'votecount'
+            = t "idea.colaboration.accept.what_do_you_want_html", user: @collab.user.name
+            .buttons[style="float:right"]
+              button[type="submit"]
+               = link_to image_tag('thumb_up.png'), vote_up_idea_path(@idea), data: {vote: "up"}, remote: true,:method => :post
+              button[type="submit"]
+               = link_to image_tag('thumb_down.png'), vote_down_idea_path(@idea), data: {vote: "down"}, remote: true,:method => :post
+      // Category badge
+      = image_tag @idea.category.badge, :alt => @idea.category.name, :title => @idea.category.name, :class => "badge"
+
+      // Idea's title
+      h1
+        / = @idea.title
+        = raw Differ.diff_by_word(@collab.title, @idea.title)
+      // Statistics of this idea
+      section.idea_stats
+        span
+          | Moderada por &nbsp;
+          // User profile
+          - profile = @idea.user.services.first.facebook_profile
+          // User profile url
+          = link_to @idea.user.name, profile, :target => "_blank", :class => "user_info"
+          | &nbsp; &mdash; &nbsp;
+
+          // Using rails helper for time ago
+          | Última alteração feita há&nbsp;
+          = time_ago_in_words(@idea.updated_at)
+
+  // Colaborar muda para Editar quando sou o dono da ideia
+  article
+    div
+      = raw Differ.diff_by_word(@collab.description_html, @idea.description_html)
+      / = @idea.description_html
